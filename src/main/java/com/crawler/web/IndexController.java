@@ -1,5 +1,7 @@
 package com.crawler.web;
 
+import com.crawler.config.auth.LoginUser;
+import com.crawler.config.auth.dto.SessionUser;
 import com.crawler.service.posts.PostsService;
 import com.crawler.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +17,15 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
+
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "index";
     }
 
