@@ -1,19 +1,28 @@
 package com.crawler.web;
 
+import com.crawler.config.auth.SecurityConfig;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(controllers = HelloController.class)
+@WebMvcTest(controllers = HelloController.class,
+        excludeFilters = {
+                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+        }
+)
 class HelloControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
+    @WithMockUser(roles = "USER")
     @Test
     public void hello_리턴() throws Exception {
         String hello = "hello";
@@ -22,6 +31,7 @@ class HelloControllerTest {
                 .andExpect(content().string(hello));
     }
 
+    @WithMockUser(roles = "USER")
     @Test
     public void helloDto_리턴() throws Exception {
         String name = "hello";
