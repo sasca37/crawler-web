@@ -34,6 +34,8 @@ deploy:
     wait-until-deployed: true
 
   - provider: codedeploy
+      on:
+        all_branches: true
       access_key_id: $AWS_ACCESS_KEY
       secret_access_key: $AWS_SECRET_KEY
       bucket: crawler-springboot-build
