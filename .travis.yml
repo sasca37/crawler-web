@@ -35,8 +35,9 @@ deploy:
   - provider: codedeploy
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-
     bucket: crawler-springboot-build
+    key: crawler-web.zip
+    bundle_type: zip
     application: crawler-webservice #codedeploy 웹 어플리케이션 이름
     region: ap-northeast-2
     wait-until-deployed: true
