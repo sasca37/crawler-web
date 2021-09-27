@@ -14,53 +14,33 @@ import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
-public class IndexController {
+public class TestController {
 
     private final PostsService postsService;
     private final HttpSession httpSession;
 
 
 
-    @GetMapping("/")
+    @GetMapping("/test")
     public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
-        return "index";
+        return "test";
     }
 
-    @GetMapping("/help")
-    public String help(){
-        return "help";
-    }
-
-    @GetMapping("/price")
-    public String price() {
-        return "price";
-    }
-
-    @GetMapping("/login/sns")
-    public String login() {
-        return "login/sns";
-    }
-
-    @GetMapping("/posts/board")
-    public String postsBoard() {
-        return "posts-board";
-    }
-
-    @GetMapping("/posts/save")
+    @GetMapping("test/posts/save")
     public String postsSave() {
-        return "posts-save";
+        return "test-posts-save";
     }
 
-    @GetMapping("/posts/update/{id}")
+    @GetMapping("test/posts/update/{id}")
     public String postsUpdate(@PathVariable Long id, Model model) {
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
 
-        return "posts-update";
+        return "test-posts-update";
     }
 }
