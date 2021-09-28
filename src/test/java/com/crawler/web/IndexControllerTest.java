@@ -19,6 +19,6 @@ public class IndexControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
 
         //then
-        assertThat(body).contains("크롤링 대행 서비스");
+        assertThat(body).contains("FitData");
     }
 }
