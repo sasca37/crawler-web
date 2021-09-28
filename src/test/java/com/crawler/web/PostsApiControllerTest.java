@@ -68,7 +68,7 @@ public class PostsApiControllerTest {
                 .author("author")
                 .build();
 
-        String url = "http://localhost:" + port + "/api/v1/posts";
+        String url = "http://localhost:" +port + "/api/v1/posts";
 
         //when
         mvc.perform(post(url)
