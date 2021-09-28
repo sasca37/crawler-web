@@ -25,13 +25,14 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="/help">도움말</a></li>
                 <li class="nav-item"><a class="nav-link" href="/price">가격</a></li>
                 <li class="nav-item"><a class="nav-link" href="/posts/board">게시판</a></li>
+                {{#userName}}
+                    <li class="nav-item"><a class="nav-link" >{{username}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/logout" >로그아웃</a></li>
+                {{/userName}}
                 {{^userName}}
                     <li class="nav-item"><a class="nav-link" href="/social/sns" >로그인</a></li>
                 {{/userName}}
-<!--                {{#userName}}-->
-<!--                    <li class="nav-item"><a class="nav-link" >{{username}}</a></li>-->
-<!--                    <li class="nav-item"><a class="nav-link" href="/logout" >로그아웃</a></li>-->
-<!--                {{/userName}}-->
+
             </ul>
         </div>
     </div>
