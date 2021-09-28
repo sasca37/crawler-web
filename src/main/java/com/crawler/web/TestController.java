@@ -28,12 +28,12 @@ public class TestController {
         if (user != null) {
             model.addAttribute("userName", user.getName());
         }
-        return "test";
+        return "test/test";
     }
 
     @GetMapping("test/posts/save")
     public String postsSave() {
-        return "test-posts-save";
+        return "test/test-posts-save";
     }
 
     @GetMapping("test/posts/update/{id}")
@@ -41,6 +41,6 @@ public class TestController {
         PostsResponseDto dto = postsService.findById(id);
         model.addAttribute("post", dto);
 
-        return "test-posts-update";
+        return "test/test-posts-update";
     }
 }

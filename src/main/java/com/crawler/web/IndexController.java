@@ -41,9 +41,14 @@ public class IndexController {
         return "price";
     }
 
-    @GetMapping("/login/sns")
-    public String login() {
-        return "login/sns";
+    @GetMapping("/social/sns")
+    public String login(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findAllDesc());
+
+        if (user != null) {
+            model.addAttribute("userName", user.getName());
+        }
+        return "social/sns";
     }
 
     @GetMapping("/posts/board")
