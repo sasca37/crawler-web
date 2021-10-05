@@ -93,4 +93,9 @@ public class IndexController {
         }
         return "posts-update";
     }
+
+    @GetMapping("/popup")
+    public String popup() {
+        return "popup";
+    }
 }

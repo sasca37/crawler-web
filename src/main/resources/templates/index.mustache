@@ -29,7 +29,8 @@
                     <li class="nav-item"><a class="nav-link" href="/logout" >로그아웃</a></li>
                 {{/userName}}
                 {{^userName}}
-                    <li class="nav-item"><a class="nav-link" href="/social/sns" >로그인</a></li>
+<!--                    <li class="nav-item"><a class="nav-link" href="/social/sns" >로그인</a></li>-->
+                    <li class="nav-item"><a class="nav-link" id="modal-open" >로그인</a></li>
                 {{/userName}}
 
             </ul>
@@ -54,12 +55,40 @@
         </div>
     </div>
 </header>
+<div class="container">
+    <div class="popup-wrap" id="popup">
+        <div class="popup">
+            <div class="popup-head">
+                <span class="head-title">FitData</span>
+            </div>
+            <div class="popup-body">
+                <div class="body-content">
+                    <div class="body-titlebox">
+                        <h1>Social Login</h1>
+                    </div>
+                    <br>
+<!--                    <img src="/img/google.png" style="width: 50px; height: 50px">-->
+                    <a href="/oauth2/authorization/google" class="btn btn-success active"
+                       role="button" style="display: block">Google</a>
+                    <br>
+                    <a href="/oauth2/authorization/naver" class="btn btn-secondary active"
+                       role="button" style="display: block">Naver</a>
+                </div>
+            </div>
+            <div class="popup-foot">
+                <span class="pop-btn confirm" id="confirm">확인</span>
+                <span class="pop-btn close" id="close">창 닫기</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Features section-->
 <section class="py-5 border-bottom" id="features">
     <div class="container px-5 my-5">
         <div class="row gx-5">
             <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-bag-check"></i></div>
                 <h2 class="h4 fw-bolder">합리적인 가격</h2>
                 <p>데이터 수집 단계별 가격의 표준화 </p>
                 <a class="text-decoration-none" href="/price">
@@ -68,7 +97,7 @@
                 </a>
             </div>
             <div class="col-lg-4 mb-5 mb-lg-0">
-                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-file-earmark-richtext-fill"></i></div>
                 <h2 class="h4 fw-bolder">다양한 형식 포맷 지원</h2>
                 <p>수집된 결과물을 CSV, XLS, JSON 포맷 제공</p>
                 <a class="text-decoration-none" href="/help">
@@ -88,12 +117,10 @@
         </div>
     </div>
 </section>
+
 <!-- Pricing section-->
 <section class="bg-light py-5 border-bottom" id="price">
     <div class="container px-5 my-5">
-        <div class="text-center mb-5">
-            <h2 class="fw-bolder">가격표</h2>
-        </div>
         <div class="row gx-5 justify-content-center">
             <!-- Pricing card free-->
             <div class="col-lg-6 col-xl-4">
@@ -198,74 +225,6 @@
     </div>
 </section>
 
-<!--&lt;!&ndash; Contact section&ndash;&gt;-->
-<!--<section class="bg-light py-5">-->
-<!--    <div class="container px-5 my-5 px-5">-->
-<!--        <div class="text-center mb-5">-->
-<!--            <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>-->
-<!--            <h2 class="fw-bolder">비회원 고민중</h2>-->
-<!--&lt;!&ndash;            <p class="lead mb-0">We'd love to hear from you</p>&ndash;&gt;-->
-<!--        </div>-->
-<!--        <div class="row gx-5 justify-content-center">-->
-<!--            <div class="col-lg-6">-->
-<!--                &lt;!&ndash; * * * * * * * * * * * * * * *&ndash;&gt;-->
-<!--                &lt;!&ndash; * * SB Forms Contact Form * *&ndash;&gt;-->
-<!--                &lt;!&ndash; * * * * * * * * * * * * * * *&ndash;&gt;-->
-<!--                &lt;!&ndash; This form is pre-integrated with SB Forms.&ndash;&gt;-->
-<!--                &lt;!&ndash; To make this form functional, sign up at&ndash;&gt;-->
-<!--                &lt;!&ndash; https://startbootstrap.com/solution/contact-forms&ndash;&gt;-->
-<!--                &lt;!&ndash; to get an API token!&ndash;&gt;-->
-<!--                <form id="contactForm" data-sb-form-api-token="API_TOKEN">-->
-<!--                    &lt;!&ndash; Name input&ndash;&gt;-->
-<!--                    <div class="form-floating mb-3">-->
-<!--                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />-->
-<!--                        <label for="name">Full name</label>-->
-<!--                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Email address input&ndash;&gt;-->
-<!--                    <div class="form-floating mb-3">-->
-<!--                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />-->
-<!--                        <label for="email">Email address</label>-->
-<!--                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>-->
-<!--                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Phone number input&ndash;&gt;-->
-<!--                    <div class="form-floating mb-3">-->
-<!--                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />-->
-<!--                        <label for="phone">Phone number</label>-->
-<!--                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Message input&ndash;&gt;-->
-<!--                    <div class="form-floating mb-3">-->
-<!--                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>-->
-<!--                        <label for="message">Message</label>-->
-<!--                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Submit success message&ndash;&gt;-->
-<!--                    &lt;!&ndash;&ndash;&gt;-->
-<!--                    &lt;!&ndash; This is what your users will see when the form&ndash;&gt;-->
-<!--                    &lt;!&ndash; has successfully submitted&ndash;&gt;-->
-<!--                    <div class="d-none" id="submitSuccessMessage">-->
-<!--                        <div class="text-center mb-3">-->
-<!--                            <div class="fw-bolder">Form submission successful!</div>-->
-<!--                            To activate this form, sign up at-->
-<!--                            <br />-->
-<!--                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash; Submit error message&ndash;&gt;-->
-<!--                    &lt;!&ndash;&ndash;&gt;-->
-<!--                    &lt;!&ndash; This is what your users will see when there is&ndash;&gt;-->
-<!--                    &lt;!&ndash; an error submitting the form&ndash;&gt;-->
-<!--                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>-->
-<!--                    &lt;!&ndash; Submit Button&ndash;&gt;-->
-<!--                    <div class="d-grid"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!-- Footer-->
 <footer class="py-5 bg-dark">
     <div class="container px-5"><p class="m-0 text-center text-white">Copyright &copy; sasca37</p></div>
 </footer>
