@@ -1,9 +1,11 @@
 ## 크롤링 대행 사이트
+- http://ec2-52-78-158-80.ap-northeast-2.compute.amazonaws.com/
+
 
 ![image](https://user-images.githubusercontent.com/81945553/135823421-8eadfb02-9a49-470d-8a1f-aef56b56e690.png)
 
 - 요구사항에 맞게 크롤링 데이터를 제공(판매)하는 웹 사이트
-
+- AWS 프리티어 사용 (운영 서버 2022년 9월에 종료 예정)
 
 
 ### 프로젝트 기간
