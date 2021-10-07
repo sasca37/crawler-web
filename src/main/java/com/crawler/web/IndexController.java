@@ -24,9 +24,8 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
-
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
         return "index";
     }
@@ -36,7 +35,7 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
 
         return "help";
@@ -47,7 +46,7 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
         return "price";
     }
@@ -57,7 +56,7 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
         return "social/sns";
     }
@@ -67,7 +66,7 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
         return "posts-board";
     }
@@ -76,7 +75,7 @@ public class IndexController {
     public String postsSave(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
         return "posts-save";
     }
@@ -87,7 +86,7 @@ public class IndexController {
         model.addAttribute("post", dto);
         model.addAttribute("posts", postsService.findAllDesc());
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
         return "posts-look";
     }
@@ -98,7 +97,7 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());
 
         if (user != null) {
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("socialName", user.getName());
         }
         return "posts-update";
     }

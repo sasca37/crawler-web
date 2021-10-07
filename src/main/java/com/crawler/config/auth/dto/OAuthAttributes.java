@@ -4,10 +4,12 @@ import com.crawler.domain.user.Role;
 import com.crawler.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.Map;
 
 @Getter
+@Log4j2
 public class OAuthAttributes {
     private Map<String, Object> attributes;
     private String nameAttributeKey;
@@ -28,7 +30,6 @@ public class OAuthAttributes {
         if("naver".equals(registrationId)) {
             return ofNaver("id", attributes);
         }
-
         return ofGoogle(userNameAttributeName, attributes);
     }
 
