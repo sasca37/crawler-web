@@ -12,7 +12,7 @@
 ### 기술 스택
 
 - Java 1.8
-- Spring Boot 2.4.x 
+- Spring Boot 2.5.x 
   - Spring MVC, Spring Data JPA, Spring Security ... 
 - AWS
   - EC2, S3, RDS, CodeDeploy 
@@ -30,8 +30,8 @@
 - Spring Security & Oauth2 로그인 (Google, Naver)
 - 고객센터 REST API 
 - AWS를 활용한 무중단 서버 배포 (Travis CI, CodeDeploy, Nginx)
-- 고객센터  등급별 처리 (관리자 / 사용자) - 진행 중  
-
+- 고객센터 관리자 페이지 - 진행 중  
+- 고객센터 댓글기능 Disqus 사용
 
 
 ### 프로젝트 구조
