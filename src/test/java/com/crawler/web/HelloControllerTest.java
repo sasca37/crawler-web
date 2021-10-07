@@ -24,7 +24,7 @@ class HelloControllerTest {
 
     @WithMockUser(roles = "USER")
     @Test
-    public void hello_리턴된다() throws Exception {
+    public void hello_리턴() throws Exception {
         String hello = "hello";
         mvc.perform(get("/hello"))
                 .andExpect(status().isOk())
